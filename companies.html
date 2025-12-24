@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Companies – BuildForce</title>
+  <meta name="description" content="BuildForce helps companies manage large mobile workforces with visibility, automated payroll, contractor management and compliance. Reduce costs and improve productivity with enterprise-grade workforce tools.">
+  <meta property="og:title" content="For Companies – BuildForce">
+  <meta property="og:description" content="BuildForce helps companies manage large mobile workforces with visibility, automated payroll, contractor management and compliance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/companies.html">
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Accessibility & small UI helpers */
+    .skip-link { position: absolute; left: -999px; top: auto; background:#000; color:#fff; padding:8px; z-index:1000; }
+    .skip-link:focus { left: 8px; top:8px; }
+
+    .modal-backdrop { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); align-items:center; justify-content:center; z-index:10000; }
+    .modal-backdrop.open { display:flex; }
+    .modal { background:#fff; padding:20px; max-width:480px; width:90%; border-radius:6px; box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+    .modal .close { float:right; background:none; border:none; font-size:18px; cursor:pointer; }
+
+    /* Small responsive tweak for form fields inside modal */
+    #contact-form input, #contact-form textarea { width:100%; margin:6px 0 12px 0; padding:8px; box-sizing:border-box; }
+    #contact-form .btn { display:inline-block; padding:8px 14px; cursor:pointer; }
+  </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body class="light-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="logo">BUILD<span>FORCE</span></div>
+
+    <nav class="nav">
+    
+
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contractors.html">For Contractors</a>
+      <a href="companies.html" class="active" aria-current="page">For Companies</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="#contact-popup" class="btn-outline">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ================= PAGE CONTENT ================= -->
+  <main class="page-container">
+
+    <!-- TITLE -->
+    <section class="page-title fade-up">
+      <h1>For Companies</h1>
+      <p>
+        BuildForce helps companies manage large workforces with
+        transparency, automation, and compliance.
+      </p>
+    </section>
+
+    <!-- FEATURE CARDS -->
+    <section class="card fade-up delay-1">
+      <h2>Workforce Visibility</h2>
+      <p>
+        Get real-time visibility into attendance, workforce deployment,
+        and site-level productivity across all projects.
+      </p>
+    </section>
+
+    <section class="card fade-up delay-2">
+      <h2>Automated Payroll</h2>
+      <p>
+        Automate salary calculations, overtime, deductions,
+        and ensure timely payments with full audit trails.
+      </p>
+    </section>
+
+    <section class="card fade-up delay-3">
+      <h2>Contractor Control</h2>
+      <p>
+        Manage multiple contractors, contracts, and work orders
+        from a single centralized platform.
+      </p>
+    </section>
+
+    <section class="card fade-up delay-4">
+      <h2>Compliance & Audits</h2>
+      <p>
+        Maintain statutory compliance with detailed logs,
+        downloadable reports, and audit-ready documentation.
+      </p>
+    </section>
+
+    <section class="card fade-up delay-5">
+      <h2>Cost & Productivity Insights</h2>
+      <p>
+        Track labor costs, productivity metrics,
+        and optimize workforce allocation with data-driven insights.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    © 2025 BuildForce — Empowering field workforce & contractors
+  </footer>
+
+  <!-- Contact Popup Modal -->
+  <div id="contact-popup" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <div class="modal" role="document">
+      <button class="close" aria-label="Close contact form" id="contact-close">&times;</button>
+      <h2 id="contact-title">Contact Sales</h2>
+      <form action="#" method="post" id="contact-form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var openLink = document.querySelector('a[href="#contact-popup"]');
+    var backdrop = document.getElementById('contact-popup');
+    var closeBtn = document.getElementById('contact-close');
+    openLink && openLink.addEventListener('click', function(e){
+      e.preventDefault();
+      backdrop.classList.add('open');
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.getElementById('name').focus();
+    });
+    closeBtn && closeBtn.addEventListener('click', function(){ backdrop.classList.remove('open'); backdrop.setAttribute('aria-hidden', 'true'); });
+    backdrop && backdrop.addEventListener('click', function(e){
+      if(e.target === backdrop) { backdrop.classList.remove('open'); backdrop.setAttribute('aria-hidden', 'true'); }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && backdrop.classList.contains('open')) { backdrop.classList.remove('open'); backdrop.setAttribute('aria-hidden', 'true'); }
+    });
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Thanks! Your message has been sent (demo).');
+      backdrop.classList.remove('open');
+      backdrop.setAttribute('aria-hidden', 'true');
+      this.reset();
+    });
+  })();
+  </script>
+
+</body>
+</html>
